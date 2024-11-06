@@ -1,6 +1,6 @@
 package at.htlsaalfelden.ritterturnier.Personen;
 
-public class NameSchonVorhanden extends RuntimeException {
+public class NameSchonVorhanden extends Exception {
     public NameSchonVorhanden(String message) {
         super(message);
     }

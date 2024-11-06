@@ -4,9 +4,15 @@ public class Person {
     private final String name;
     private final String telefonnummer;
 
-    public Person(String name, String telefonnummer) {
+    public Person(String name, String nummer) throws ValidationException {
+        if(name == null || name.isEmpty()) {
+            throw new ValidationException("name", "Der Name muss existieren");
+        }
+        if(nummer == null || nummer.isEmpty()) {
+            throw new ValidationException("nummer","Die Telefonnummer muss existieren");
+        }
         this.name = name;
-        this.telefonnummer = telefonnummer;
+        this.telefonnummer = nummer;
     }
 
     public String getName() {

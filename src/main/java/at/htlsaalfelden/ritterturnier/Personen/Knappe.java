@@ -3,7 +3,7 @@ package at.htlsaalfelden.ritterturnier.Personen;
 public class Knappe extends Person{
     private final int ausbildungsgrad;
 
-    public Knappe(String name, String telefonnummer, int ausbildungsgrad) {
+    public Knappe(String name, String telefonnummer, int ausbildungsgrad) throws ValidationException {
         super(name, telefonnummer);
 
         this.ausbildungsgrad = ausbildungsgrad;

@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class Teilnehmerliste {
     private final List<Person> teilnehmer = new ArrayList<>();
 
-    public void addTeilnehmer(Person person) {
+    public void addTeilnehmer(Person person) throws NameSchonVorhanden{
         if(teilnehmer.stream().anyMatch(p -> p.getName().equals(person.getName()))) {
             throw new NameSchonVorhanden("Name schon vorhanden");
         }

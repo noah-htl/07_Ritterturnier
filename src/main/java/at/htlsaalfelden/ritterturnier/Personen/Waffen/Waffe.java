@@ -16,4 +16,9 @@ public abstract class Waffe {
     public String getWaffenArt() {
         return waffenArt;
     }
+
+    @Override
+    public String toString() {
+        return bezeichnung;
+    }
 }

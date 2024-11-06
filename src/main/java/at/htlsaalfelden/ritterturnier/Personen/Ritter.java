@@ -12,14 +12,21 @@ public final class Ritter extends Person {
 
     private static int ID;
 
-    public Ritter(String name, String telefonnummer, String rufname) {
-        super(name, telefonnummer);
+    public Ritter(String name, String nummer, String rufname) throws ValidationException {
+        super(name, nummer);
+        if(rufname == null || rufname.isEmpty()) {
+            throw new ValidationException("rufname", "Der Rufname muss existieren");
+        }
         this.rufname = rufname;
         this.id = ID++;
     }
 
     public String getRufname() {
         return rufname;
+    }
+
+    public static int getNextId() {
+        return ID;
     }
 
     public int getId() {
