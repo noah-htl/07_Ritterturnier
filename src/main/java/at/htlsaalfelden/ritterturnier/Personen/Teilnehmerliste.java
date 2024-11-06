@@ -14,10 +14,13 @@ public class Teilnehmerliste {
         teilnehmer.add(person);
     }
 
-    public void listeAlleTeilnehmer() {
+    public String listeAlleTeilnehmer() {
+        StringBuilder stringBuilder = new StringBuilder();
         for(Person p : teilnehmer) {
-            System.out.println(p.toString());
+            stringBuilder.append(p).append("\n");
         }
+
+        return stringBuilder.toString();
     }
 
     public List<Person> alleMitWaffenart(String waffenart) {

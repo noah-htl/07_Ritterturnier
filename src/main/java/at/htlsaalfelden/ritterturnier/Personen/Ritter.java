@@ -21,6 +21,11 @@ public final class Ritter extends Person {
         this.id = ID++;
     }
 
+    public Ritter(String name, String nummer, String rufname, Waffe waffe) throws ValidationException {
+        this(name, nummer, rufname);
+        this.setWaffe(waffe);
+    }
+
     public String getRufname() {
         return rufname;
     }
@@ -65,5 +70,10 @@ public final class Ritter extends Person {
         result = 31 * result + Objects.hashCode(knappe);
         result = 31 * result + getId();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nRufname: " + rufname + "\nWaffe: " + waffe.toString() + knappe;
     }
 }

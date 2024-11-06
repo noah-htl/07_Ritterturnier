@@ -11,9 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -23,8 +21,11 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     private Teilnehmerliste teilnehmerliste;
-    private TextField lastError;
+    private Control lastError;
 
+
+    @FXML
+    private TextArea textArea;
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -41,6 +42,8 @@ public class MainController implements Initializable {
     private void startCreating() {
         id.setText(String.valueOf(Ritter.getNextId()));
         clearError();
+
+        textArea.setText(teilnehmerliste.listeAlleTeilnehmer());
     }
 
     @Override
@@ -68,15 +71,15 @@ public class MainController implements Initializable {
         } catch (IllegalAccessException ex) {
             throw new RuntimeException(ex);
         }
-        if(o instanceof TextField textField) {
+        if(o instanceof Control control) {
             if(lastError != null) {
                 lastError.setBorder(null);
             }
-            textField.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.DEFAULT_WIDTHS)));
+            control.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.DEFAULT_WIDTHS)));
             borderPane.setCenter(new Label(e.getMessage()));
-            lastError = textField;
+            lastError = control;
         } else {
-            throw new RuntimeException("Not a Text field");
+            throw new RuntimeException("Not a Control field");
         }
     }
 
@@ -92,7 +95,7 @@ public class MainController implements Initializable {
     public void add(ActionEvent actionEvent) {
         Ritter ritter = null;
         try {
-            ritter = new Ritter(name.getText(), nummer.getText(), rufname.getText());
+            ritter = new Ritter(name.getText(), nummer.getText(), rufname.getText(), comboBox.getValue());
         } catch (ValidationException e) {
             showError(e);
             return;

@@ -37,4 +37,9 @@ public class Person {
         result = 31 * result + getTelefonnummer().hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\nTelefonnummer" + telefonnummer;
+    }
 }

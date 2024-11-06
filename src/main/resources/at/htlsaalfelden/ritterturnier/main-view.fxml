@@ -64,6 +64,6 @@
             </BorderPane>
          </children>
       </VBox>
-      <TextArea maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="960.0" />
+      <TextArea fx:id="textArea" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="960.0" />
    </children>
 </HBox>
