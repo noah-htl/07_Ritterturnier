@@ -1,9 +1,6 @@
 package at.htlsaalfelden.ritterturnier;
 
-import at.htlsaalfelden.ritterturnier.Personen.NameSchonVorhanden;
-import at.htlsaalfelden.ritterturnier.Personen.Ritter;
-import at.htlsaalfelden.ritterturnier.Personen.Teilnehmerliste;
-import at.htlsaalfelden.ritterturnier.Personen.ValidationException;
+import at.htlsaalfelden.ritterturnier.Personen.*;
 import at.htlsaalfelden.ritterturnier.Personen.Waffen.Lanze;
 import at.htlsaalfelden.ritterturnier.Personen.Waffen.Schwert;
 import at.htlsaalfelden.ritterturnier.Personen.Waffen.Waffe;
@@ -25,7 +22,7 @@ public class MainController implements Initializable {
 
 
     @FXML
-    private TextArea textArea;
+    public ListView<Person> listView;
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -43,7 +40,8 @@ public class MainController implements Initializable {
         id.setText(String.valueOf(Ritter.getNextId()));
         clearError();
 
-        textArea.setText(teilnehmerliste.listeAlleTeilnehmer());
+        listView.getItems().clear();
+        teilnehmerliste.forEach(listView.getItems()::add);
     }
 
     @Override

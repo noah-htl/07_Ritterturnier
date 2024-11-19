@@ -1,10 +1,13 @@
 package at.htlsaalfelden.ritterturnier.Personen;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Teilnehmerliste {
+public class Teilnehmerliste implements Iterable<Person>{
     private final List<Person> teilnehmer = new ArrayList<>();
 
     public void addTeilnehmer(Person person) throws NameSchonVorhanden{
@@ -17,7 +20,7 @@ public class Teilnehmerliste {
     public String listeAlleTeilnehmer() {
         StringBuilder stringBuilder = new StringBuilder();
         for(Person p : teilnehmer) {
-            stringBuilder.append(p).append("\n");
+            stringBuilder.append(p).append("\n\n");
         }
 
         return stringBuilder.toString();
@@ -30,5 +33,20 @@ public class Teilnehmerliste {
             }
             return false;
         }).toList();
+    }
+
+    @Override
+    public Iterator<Person> iterator() {
+        return this.teilnehmer.iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Person> action) {
+        this.teilnehmer.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Person> spliterator() {
+        return this.teilnehmer.spliterator();
     }
 }

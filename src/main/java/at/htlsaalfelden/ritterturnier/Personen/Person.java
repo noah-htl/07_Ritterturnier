@@ -40,6 +40,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nTelefonnummer" + telefonnummer;
+        return "Name: " + name + "\nTelefonnummer: " + telefonnummer;
     }
 }

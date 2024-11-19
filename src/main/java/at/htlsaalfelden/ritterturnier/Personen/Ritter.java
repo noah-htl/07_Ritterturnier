@@ -74,6 +74,15 @@ public final class Ritter extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "\nRufname: " + rufname + "\nWaffe: " + waffe.toString() + knappe;
+        String _knappe = "";
+        if(knappe != null) {
+            _knappe = "\nKnappe:" + knappe;
+        }
+
+        String _waffe = "";
+        if(waffe != null) {
+            _waffe = "\nWaffe:" + waffe;
+        }
+        return super.toString() + "\nRufname: " + rufname + _waffe + _knappe;
     }
 }
