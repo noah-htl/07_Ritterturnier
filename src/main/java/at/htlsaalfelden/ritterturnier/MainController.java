@@ -7,11 +7,15 @@ import at.htlsaalfelden.ritterturnier.Personen.Waffen.Waffe;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -108,5 +112,15 @@ public class MainController implements Initializable {
 
 
         startCreating();
+    }
+
+    @FXML
+    public void showScarceWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(RitterApplication.class.getResource("scarce-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+        Stage stage = new Stage();
+        stage.setTitle("Knappen-Eingabe");
+        stage.setScene(scene);
+        stage.show();
     }
 }

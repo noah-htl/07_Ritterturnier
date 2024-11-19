@@ -55,15 +55,22 @@
                </children>
             </GridPane>
             <BorderPane fx:id="borderPane" prefHeight="0.0" prefWidth="200.0">
-               <top>
-                  <Button mnemonicParsing="false" onAction="#add" text="Hinzufügen" BorderPane.alignment="CENTER" />
-               </top>
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
+               <center>
+                  <Button mnemonicParsing="false" onAction="#add" text="Hinzufügen" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <Button mnemonicParsing="false" onAction="#showScarceWindow" text="Knappe Erstellen" BorderPane.alignment="TOP_CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </top>
             </BorderPane>
          </children>
       </VBox>
-      <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="960.0"/>
+      <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="960.0" />
    </children>
 </HBox>
