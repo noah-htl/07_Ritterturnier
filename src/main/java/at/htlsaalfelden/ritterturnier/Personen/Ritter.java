@@ -76,7 +76,7 @@ public final class Ritter extends Person {
     public String toString() {
         String _knappe = "";
         if(knappe != null) {
-            _knappe = "\nKnappe:" + knappe;
+            _knappe = "\nKnappe:\n\t" + knappe;
         }
 
         String _waffe = "";

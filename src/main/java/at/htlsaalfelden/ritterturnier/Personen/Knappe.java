@@ -28,4 +28,9 @@ public class Knappe extends Person{
         result = 31 * result + getAusbildungsgrad();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return String.join("\n\t", super.toString().split("\n")) + "\n\tAusbildungsgrad: " + ausbildungsgrad;
+    }
 }

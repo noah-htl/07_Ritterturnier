@@ -121,7 +121,7 @@ public class MainController implements Initializable {
     @FXML
     public void showScarceWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(RitterApplication.class.getResource("scarce-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+        Scene scene = new Scene(fxmlLoader.load(), 384, 216);
         Stage stage = new Stage();
         stage.setTitle("Knappen-Eingabe");
         stage.setScene(scene);

@@ -44,7 +44,10 @@
                         </TextField>
                         <TextField fx:id="nummer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Ausbildungsgrad" GridPane.rowIndex="2" />
-                  <Slider fx:id="ausbildungsgrad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Slider fx:id="ausbildungsgrad" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin></Slider>
                     </children>
                 </GridPane>
             <BorderPane fx:id="borderPane" prefHeight="0.0" prefWidth="0.0">
