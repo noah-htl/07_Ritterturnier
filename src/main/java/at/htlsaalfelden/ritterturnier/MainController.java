@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -25,6 +26,8 @@ public class MainController implements Initializable {
     private Control lastError;
 
 
+    @FXML
+    public ImageView image;
     @FXML
     public ListView<Person> listView;
     @FXML
@@ -128,5 +131,16 @@ public class MainController implements Initializable {
         stage.show();
 
         scarceController = fxmlLoader.getController();
+    }
+
+    @FXML
+    public void onChange(ActionEvent actionEvent) {
+        Waffe waffe = comboBox.getValue();
+
+        if(waffe == null) {
+            return;
+        }
+
+        image.setImage(waffe.getImage());
     }
 }
