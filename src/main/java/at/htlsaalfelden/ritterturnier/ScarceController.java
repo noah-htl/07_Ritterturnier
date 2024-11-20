@@ -1,5 +1,6 @@
 package at.htlsaalfelden.ritterturnier;
 
+import at.htlsaalfelden.ritterturnier.Personen.Knappe;
 import at.htlsaalfelden.ritterturnier.Personen.ValidationException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -25,9 +27,24 @@ public class ScarceController implements Initializable {
     @FXML
     public BorderPane borderPane;
 
+    private Knappe knappe;
+
+    public Knappe getKnappe() {
+        return knappe;
+    }
+
     @FXML
     public void close(ActionEvent actionEvent) {
+        clearError();
+        try {
+            knappe = new Knappe(name.getText(), nummer.getText(), (int) ausbildungsgrad.getValue());
+        } catch (ValidationException e) {
+            showError(e);
+            return;
+        }
 
+        Stage stage = (Stage) nummer.getScene().getWindow();
+        stage.close();
     }
 
     private Control lastError;

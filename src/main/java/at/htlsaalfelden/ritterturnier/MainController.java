@@ -40,6 +40,8 @@ public class MainController implements Initializable {
     @FXML
     private ComboBox<Waffe> comboBox;
 
+    private ScarceController scarceController;
+
     private void startCreating() {
         id.setText(String.valueOf(Ritter.getNextId()));
         clearError();
@@ -103,6 +105,8 @@ public class MainController implements Initializable {
             return;
         }
 
+        ritter.setKnappe(scarceController.getKnappe());
+
         try {
             teilnehmerliste.addTeilnehmer(ritter);
         } catch (NameSchonVorhanden e) {
@@ -122,5 +126,7 @@ public class MainController implements Initializable {
         stage.setTitle("Knappen-Eingabe");
         stage.setScene(scene);
         stage.show();
+
+        scarceController = fxmlLoader.getController();
     }
 }
