@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -49,9 +50,18 @@
                   <TextField fx:id="rufname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="nummer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Waffe" GridPane.rowIndex="4" />
-                  <ComboBox fx:id="comboBox" prefWidth="1000.0" promptText="Waffe" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="ID" />
                   <TextField fx:id="id" editable="false" GridPane.columnIndex="1" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <ComboBox fx:id="comboBox" onAction="#onChange" prefWidth="1000.0" promptText="Waffe" />
+                        <ImageView fx:id="image" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
                </children>
             </GridPane>
             <BorderPane fx:id="borderPane" prefHeight="0.0" prefWidth="200.0">

@@ -1,5 +1,7 @@
 package at.htlsaalfelden.ritterturnier.Personen.Waffen;
 
+import javafx.scene.image.Image;
+
 public abstract class Waffe {
     private final String bezeichnung;
     private final String waffenArt;
@@ -21,4 +23,6 @@ public abstract class Waffe {
     public String toString() {
         return bezeichnung;
     }
+
+    public abstract Image getImage();
 }
