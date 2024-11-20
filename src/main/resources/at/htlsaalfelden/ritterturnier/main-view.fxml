@@ -58,9 +58,9 @@
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
-               <center>
+               <bottom>
                   <Button mnemonicParsing="false" onAction="#add" text="Hinzufügen" BorderPane.alignment="CENTER" />
-               </center>
+               </bottom>
                <top>
                   <Button mnemonicParsing="false" onAction="#showScarceWindow" text="Knappe Erstellen" BorderPane.alignment="TOP_CENTER">
                      <BorderPane.margin>
