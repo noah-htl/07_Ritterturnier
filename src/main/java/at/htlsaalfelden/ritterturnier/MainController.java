@@ -43,6 +43,9 @@ public class MainController implements Initializable {
     @FXML
     private ComboBox<Waffe> comboBox;
 
+    @FXML
+    public TextField search;
+
     private ScarceController scarceController;
 
     private void startCreating() {
@@ -62,6 +65,15 @@ public class MainController implements Initializable {
         list.add(new Schwert());
 
         startCreating();
+
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            listView.getItems().clear();
+            if(newValue.isBlank()) {
+                teilnehmerliste.forEach(listView.getItems()::add);
+            } else {
+                teilnehmerliste.alleMitWaffenart(newValue).forEach(listView.getItems()::add);
+            }
+        });
     }
 
     private void showError(ValidationException e) {

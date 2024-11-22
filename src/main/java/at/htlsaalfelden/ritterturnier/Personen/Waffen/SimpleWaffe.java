@@ -14,7 +14,7 @@ public abstract class SimpleWaffe extends Waffe{
             bezeichnung.setAccessible(true);
             waffenArt.setAccessible(true);
             bezeichnung.set(this, this.getClass().getSimpleName());
-            waffenArt.set(this, this.getClass().getSimpleName().charAt(0));
+            waffenArt.set(this, this.getClass().getSimpleName().substring(0,1));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
