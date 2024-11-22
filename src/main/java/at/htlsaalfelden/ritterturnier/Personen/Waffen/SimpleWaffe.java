@@ -9,10 +9,12 @@ public abstract class SimpleWaffe extends Waffe{
     public SimpleWaffe() {
         super("Platzhalter");
         try {
-            Field field = Waffe.class.getDeclaredField("bezeichnung");
-            field.setAccessible(true);
-            field.set(this, this.getClass().getSimpleName());
-            field.setAccessible(false);
+            Field bezeichnung = Waffe.class.getDeclaredField("bezeichnung");
+            Field waffenArt = Waffe.class.getDeclaredField("waffenArt");
+            bezeichnung.setAccessible(true);
+            waffenArt.setAccessible(true);
+            bezeichnung.set(this, this.getClass().getSimpleName());
+            waffenArt.set(this, this.getClass().getSimpleName().charAt(0));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
