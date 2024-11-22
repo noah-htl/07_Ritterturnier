@@ -108,7 +108,9 @@ public class MainController implements Initializable {
             return;
         }
 
-        ritter.setKnappe(scarceController.getKnappe());
+        if(scarceController != null) {
+            ritter.setKnappe(scarceController.getKnappe());
+        }
 
         try {
             teilnehmerliste.addTeilnehmer(ritter);
